@@ -29,16 +29,6 @@ def profile_list(request):
     serializer = ProfileSerializer(user,many=True)
     return Response(serializer.data)
 
-# @api_view()
-# def getallblog(request):
-#     user = User.objects.all()
-#     serializer = UserSerializer
-#     if user == user:
-#         print("user is available")
-#         return redirect(EditBlog,status=status.HTTP_201_CREATED)
-#     else:
-#         return redirect(RegisterApi)
-
 
 
 class IsLoggedInUserOrReadOnly(BasePermission):
@@ -68,39 +58,7 @@ class GetallBlog(ListCreateAPIView):
         else:
             return BlogSummarySerializer
         
-        # if self.request.user.is_authenticated:
-        #     print('BlogSerializer',self.request.user.is_authenticated)
-        #     return BlogSerializer
-        # else:
-        #     print('BlogSummarySerializer',self.request.user.is_authenticated)
-        #     return BlogSummarySerializer
-
-
-
-# @api_view(['GET'])
-# def getallblog(request):
-#     if request.user.is_authenticated:
-#         blogs = Blog.objects.all()
-#         serializer = BlogSerializer(blogs, many=True)
-#         return Response(serializer.data)
-#     else:
-        
-#         return Response({'detail': 'User Not logged in'}, status=status.HTTP_401_UNAUTHORIZED)
-        # return redirect(blogs)
-
-
-
-
-
-# @api_view(['GET'])
-# def getallblog(request):
-#     blogs = Blog.objects.all()
-#     serializer = BlogSerializer(blogs, many=True)
-#     if blogs.exists():
-#         return Response(serializer.data,status=status.HTTP_201_CREATED)
-#     else:
-#         return redirect(RegisterApi)
-
+      
 
 
 @api_view()
@@ -111,14 +69,7 @@ def profile_retrive(request,pk):
     serializer = ProfileSerializer(user)
     return Response(serializer.data)
 
-# class Register(GenericAPIView):
-#     serializer_class = RegisterSerializer
-#     def post(self,request,*args,**kwargs):
-#         serializer = self.get_serializer(data=request.data)
-#         if serializer.is_valid()
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 class RegisterApi(GenericAPIView):
     serializer_class = RegisterSerializer
@@ -131,9 +82,7 @@ class RegisterApi(GenericAPIView):
             "message": "User Created Successfully.  Now perform Login to get your token",
         })
 
-# class EditProfile(ListAPIView):
-#     queryset = Profile.objects.all()
-#     serializer_class = EditProfileSerializer
+
 
 class EditProfile(UpdateAPIView):
     queryset = Profile.objects.all()
@@ -190,27 +139,4 @@ def VerifieBlog(request, pk):
         blogtoverify.save()
         return Response({"msg":"blog verifyed"})
     return Response({'test':'TEST'})
-
-
-
-# class RegistrationAPIView(CreateAPIView):
-#     serializer_class = ProfileSerializer
-
-# class LoginUser(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-#     authentication_classes = [SessionAuthentication]
-#     permission_classes = [IsAuthenticated]
-
-
-# class LoginView(APIView):
-#     def post(self, request):
-#         serializer = LoginSerializer(data=request.data)
-#         if serializer.is_valid():
-#             user = serializer.validated_data['user']
-#             token, created = Token.objects.get_or_create(user=user)
-#             return Response({'token': token.key})
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
