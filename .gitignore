@@ -1,2 +1,4 @@
-API_For_Reg_Log_CreateProfile_JWT_ForAuthantic_User/abc.xyz
-cvb.ghf
+*.txt
+*.mp4
+
+!c.txt
