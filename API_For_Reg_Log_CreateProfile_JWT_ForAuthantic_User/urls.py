@@ -26,6 +26,5 @@ urlpatterns = [
     # path('', include(router.urls)),
     path('getall-blog',GetallBlog.as_view(),name='getblog'),
     path('verifybog/<int:pk>', views.VerifieBlog),
-    # path('getall-blog/<int:pk>',GetallBlog.as_view()),
     path('', include('rest_framework.urls')),
 ]
