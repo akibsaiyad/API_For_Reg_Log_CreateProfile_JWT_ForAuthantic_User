@@ -15,13 +15,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-# class User(models.Model):
-#     username = models.CharField(max_length=100)
-#     password = models.CharField(max_length=50)
-
-
-    
-
 class Blog(models.Model):
     title = models.CharField(max_length=100)
     Meta_descreption = models.CharField(max_length=500)
@@ -34,5 +27,3 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
-
-
