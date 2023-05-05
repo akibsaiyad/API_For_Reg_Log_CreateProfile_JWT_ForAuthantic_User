@@ -47,14 +47,7 @@ class EditProfileSerializer(serializers.ModelSerializer):
             instance.profile.save()
         return super().update(instance, validated_data)
 
-    # def create(self, validated_data):
-    #     user_data = validated_data.pop('user')
-    #     user = User.objects.create(**user_data)
-    #     profile = Profile.objects.create(user=user,**validated_data)
-
-    #     return profile
-
-
+    
 
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,22 +55,8 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-    # def Adduser(self,user):
-    #     au = RegisterSerializer.get_field_names(user)
-    #     return au
-
-# class LoginSerializer(serializers.ModelSerializer):
-#     username = serializers.CharField()
-#     password = serializers.CharField()
-
-#     def validate(self, data):
-#         user = authenticate(username=data['username'], password=data['password'])
-#         if not user:
-#             raise serializers.ValidationError('Invalid login credentials')
-#         data['user'] = user
-#         return data
+   
     
-
 
 class BlogSummarySerializer(serializers.ModelSerializer):
     content = serializers.SerializerMethodField()
