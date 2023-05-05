@@ -9,3 +9,9 @@ class Profile(admin.ModelAdmin):
 
 
 admin.site.register(Blog)
+
+
+
+
+
+
